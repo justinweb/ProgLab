@@ -1,0 +1,5 @@
+D:\TMP\GitHub\ProgLabUtil\ProgLabUtil\bin\Debug\ProgLabUtil.dll
+D:\TMP\GitHub\ProgLabUtil\ProgLabUtil\bin\Debug\ProgLabUtil.pdb
+D:\TMP\GitHub\ProgLabUtil\ProgLabUtil\obj\Debug\ResolveAssemblyReference.cache
+D:\TMP\GitHub\ProgLabUtil\ProgLabUtil\obj\Debug\ProgLabUtil.dll
+D:\TMP\GitHub\ProgLabUtil\ProgLabUtil\obj\Debug\ProgLabUtil.pdb
