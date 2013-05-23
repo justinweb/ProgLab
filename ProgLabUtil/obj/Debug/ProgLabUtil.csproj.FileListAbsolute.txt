@@ -3,3 +3,8 @@ D:\TMP\GitHub\ProgLabUtil\ProgLabUtil\bin\Debug\ProgLabUtil.pdb
 D:\TMP\GitHub\ProgLabUtil\ProgLabUtil\obj\Debug\ResolveAssemblyReference.cache
 D:\TMP\GitHub\ProgLabUtil\ProgLabUtil\obj\Debug\ProgLabUtil.dll
 D:\TMP\GitHub\ProgLabUtil\ProgLabUtil\obj\Debug\ProgLabUtil.pdb
+D:\TMP\GitHub\ProgLab\ProgLabUtil\obj\Debug\ResolveAssemblyReference.cache
+D:\TMP\GitHub\ProgLab\ProgLabUtil\bin\Debug\ProgLab.Util.dll
+D:\TMP\GitHub\ProgLab\ProgLabUtil\bin\Debug\ProgLab.Util.pdb
+D:\TMP\GitHub\ProgLab\ProgLabUtil\obj\Debug\ProgLab.Util.dll
+D:\TMP\GitHub\ProgLab\ProgLabUtil\obj\Debug\ProgLab.Util.pdb
