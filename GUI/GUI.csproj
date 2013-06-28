@@ -43,6 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Authorization\AuthControlExtender.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Extensions\ControlSyncExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
