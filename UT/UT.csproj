@@ -2,18 +2,20 @@
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{EBDE2CE7-DC21-49ED-9B1A-0BD759D7AC55}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{45D6EE3E-DD8C-4EBF-93AF-2959719F77AA}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ProgLab.Util</RootNamespace>
-    <AssemblyName>ProgLab.Util</AssemblyName>
+    <RootNamespace>UT</RootNamespace>
+    <AssemblyName>UT</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -21,9 +23,9 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\ProgLab.Util.XML</DocumentationFile>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -41,16 +43,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Container\ILatestQueueKey.cs" />
-    <Compile Include="Container\IQueueContainer.cs" />
-    <Compile Include="Container\SwitchContainer.cs" />
-    <Compile Include="Dispatcher\IDispatcher.cs" />
-    <Compile Include="Dispatcher\ThreadDataDispatcher.cs" />
-    <Compile Include="Dispatcher\ThreadPoolDataDispatcher.cs" />
-    <Compile Include="EncryptUtil.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QuickList.cs" />
-    <Compile Include="RWDictionary.cs" />
+    <Compile Include="SwitchUT.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GUI\GUI.csproj">
+      <Project>{7927C404-ACAB-46C7-8266-83C4B90BFD4E}</Project>
+      <Name>GUI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProgLabUtil\ProgLabUtil.csproj">
+      <Project>{EBDE2CE7-DC21-49ED-9B1A-0BD759D7AC55}</Project>
+      <Name>ProgLabUtil</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
