@@ -51,7 +51,7 @@
     <Compile Include="Dispatcher\ThreadPoolDataDispatcher.cs" />
     <Compile Include="EncryptUtil.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QuickList.cs" />
+    <Compile Include="QuickUpdateList.cs" />
     <Compile Include="RWDictionary.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
