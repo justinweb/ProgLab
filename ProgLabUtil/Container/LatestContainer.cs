@@ -5,6 +5,11 @@ using System.Text;
 
 namespace ProgLab.Util.Container
 {
+    /// <summary>
+    /// 以key的方式儲存最後一筆資訊
+    /// </summary>
+    /// <typeparam name="TData">資料型別</typeparam>
+    /// <typeparam name="TKey">索引鍵型別</typeparam>
     public class LatestContainer<TData,TKey> : IQueueContainer<TData>
     {
         private Queue<TKey> queueKey = new Queue<TKey>();
@@ -12,6 +17,9 @@ namespace ProgLab.Util.Container
         private Func<TData, TKey> GetDatakey = null;
         private object syncRoot = new object();
 
+        /// <summary>
+        /// 同步化物件
+        /// </summary>
         public object SyncRoot
         {
             get
@@ -19,19 +27,22 @@ namespace ProgLab.Util.Container
                 return syncRoot;
             }
         }
-
+        /// <summary>
+        /// constructor
+        /// </summary>
+        /// <param name="getDatakey">為資料型別產生索引鍵的函式</param>
         public LatestContainer(Func<TData, TKey> getDatakey)
         {
             GetDatakey = getDatakey;
         }
 
         #region IQueueContainer<TData> 成員
-
+        /// <inheritdoc/>
         public int Count
         {
             get { return queueKey.Count; }
         }
-
+        /// <inheritdoc/>
         public void Enqueue(TData data)
         {
             System.Diagnostics.Debug.Assert(GetDatakey != null);
@@ -51,7 +62,7 @@ namespace ProgLab.Util.Container
                 }
             }
         }
-
+        /// <inheritdoc/>
         public TData Dequeue()
         {
             lock (SyncRoot)
@@ -70,9 +81,8 @@ namespace ProgLab.Util.Container
                 else
                     return default(TData);
             }
-
         }
-
+        /// <inheritdoc/>
         public TData GetIfAny()
         {
             lock (SyncRoot)
@@ -83,7 +93,7 @@ namespace ProgLab.Util.Container
                     return default(TData);
             }
         }
-
+        /// <inheritdoc/>
         public void Clear()
         {
             lock (SyncRoot)
