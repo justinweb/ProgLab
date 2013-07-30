@@ -7,8 +7,7 @@ using ProgLab.Util.Container;
 
 namespace ProgLab.Util.Dispatcher
 {
-    public class ThreadPoolDataDispatcher<TData, TContainer> : IDispatcher<TData>
-        where TContainer : IQueueContainer<TData>, new()
+    public class ThreadPoolDataDispatcher<TData> : IDispatcher<TData>        
     {
         public event Action<TData> OnDataIn = null;
 
@@ -24,12 +23,13 @@ namespace ProgLab.Util.Dispatcher
         }
         
         private Queue<ManualResetEvent> workerFlag = new Queue<ManualResetEvent>();
-        private TContainer queueData = new TContainer();        
+        private IQueueContainer<TData> queueData = null;       
         private object lock_DataWorker = new object();
         private bool isStop = false;
 
-        public ThreadPoolDataDispatcher(int workerCount)
+        public ThreadPoolDataDispatcher(int workerCount, IQueueContainer<TData> queueData )
         {
+            this.queueData = queueData;
             WorkerCount = workerCount;
         }
 

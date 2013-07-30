@@ -199,15 +199,14 @@ namespace ProgLab.Util.Container
     /// </summary>
     /// <typeparam name="TContainer"></typeparam>
     /// <typeparam name="TData"></typeparam>
-    public class SwitchContainer<TContainer, TData> : IQueueContainer<TData>
-        where TContainer : IQueueContainer<TData>, new()
+    public class SwitchContainer<TData> : IQueueContainer<TData>        
     {
         #region Member variables
-        private TContainer firstContainer = new TContainer();
-        private TContainer secondContainer = new TContainer();
+        private IQueueContainer<TData> firstContainer = null;
+        private IQueueContainer<TData> secondContainer = null;
 
-        private TContainer inContainer = default(TContainer);
-        private TContainer outContainer = default(TContainer);
+        private IQueueContainer<TData> inContainer = null;
+        private IQueueContainer<TData> outContainer = null;
 
         private ReaderWriterLockSlim rwLock = new ReaderWriterLockSlim();   // when switching the writer permission must be requested
         private object lock_out = new object();                     // lock for reterive data
@@ -217,8 +216,11 @@ namespace ProgLab.Util.Container
         /// <summary>
         /// Constructor
         /// </summary>
-        public SwitchContainer()
+        public SwitchContainer(IQueueContainer<TData> first, IQueueContainer<TData> second )
         {
+            firstContainer = first;
+            secondContainer = second;
+ 
             // set in/out container
             inContainer = firstContainer;
             outContainer = secondContainer;
@@ -314,7 +316,7 @@ namespace ProgLab.Util.Container
                 rwLock.EnterWriteLock();
                 try
                 {
-                    TContainer tmp = inContainer;
+                    IQueueContainer<TData> tmp = inContainer;
                     inContainer = outContainer;
                     outContainer = tmp;
                 }

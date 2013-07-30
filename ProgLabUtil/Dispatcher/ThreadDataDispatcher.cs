@@ -12,8 +12,7 @@ namespace ProgLab.Util.Dispatcher
     /// </summary>
     /// <typeparam name="TData">資料型別</typeparam>
     /// <typeparam name="TContainer">資料儲存器(<see cref="IQueueContainer"/>)</typeparam>
-    public class ThreadDataDispatcher<TData, TContainer> : IDispatcher<TData>
-        where TContainer : IQueueContainer<TData>, new()
+    public class ThreadDataDispatcher<TData> : IDispatcher<TData>        
     {
         #region Events
         public event Action<TData> OnDataIn = null;
@@ -38,7 +37,7 @@ namespace ProgLab.Util.Dispatcher
 
         #region Member variables
         private Queue<ManualResetEvent> workerFlag = new Queue<ManualResetEvent>(); // 放置目前可使用的執行緒同步物件
-        private TContainer queueData = new TContainer();    // 資料儲存器
+        private IQueueContainer<TData> queueData = null;    // 資料儲存器
         private List<Thread> workers = new List<Thread>();  // 所有可用的執行緒
         private object lock_DataWorker = new object();      // Start(),Stop()時的同步物件
         #endregion
@@ -48,9 +47,10 @@ namespace ProgLab.Util.Dispatcher
         /// 建構子
         /// </summary>
         /// <param name="workerCount">設定可使用的執行緒數目</param>
-        public ThreadDataDispatcher(int workerCount)
+        public ThreadDataDispatcher(int workerCount, IQueueContainer<TData> queueData)
         {
             WorkerCount = workerCount;
+            this.queueData = queueData;
         }
         #endregion
 

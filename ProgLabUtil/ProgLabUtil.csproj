@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Container\ILatestQueueKey.cs" />
     <Compile Include="Container\IQueueContainer.cs" />
+    <Compile Include="Container\LatestContainer.cs" />
     <Compile Include="Container\SwitchContainer.cs" />
     <Compile Include="Dispatcher\IDispatcher.cs" />
     <Compile Include="Dispatcher\ThreadDataDispatcher.cs" />

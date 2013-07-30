@@ -6,16 +6,20 @@ using System.Threading;
 using ProgLab.Util.Container;
 using ProgLab.Util.Dispatcher;
 
-namespace TestUT.Switch
+namespace UT
 {
     public class SwitchUT
     {
         #region UT -- IQueueContainer
         private static int testSeq = 0;
-        private static SwitchContainer<QueueContainer<TestData>, TestData> switchQueue = new SwitchContainer<QueueContainer<TestData>, TestData>(); 
+        private static QueueContainer<TestData> firstQueue = new QueueContainer<TestData>();
+        private static QueueContainer<TestData> secondQueue = new QueueContainer<TestData>();
+        private static SwitchContainer<TestData> switchQueue = null;
         
         public static void UT()
         {
+            switchQueue = new SwitchContainer<TestData>(firstQueue,secondQueue); 
+
             int getCount = 5;
             Thread[] tGetData = new Thread[getCount];
             for( int indexGet = 0; indexGet < getCount; ++indexGet )
@@ -65,10 +69,12 @@ namespace TestUT.Switch
         #endregion
 
         //private static DataWorker<TestData, QueueContainer<TestData>> dataWorker = new DataWorker<TestData, QueueContainer<TestData>>(2); 
-        private static ThreadPoolDataDispatcher<TestData, SwitchContainer<QueueContainer<TestData>, TestData>> dataWorker =
-            new ThreadPoolDataDispatcher<TestData, SwitchContainer<QueueContainer<TestData>, TestData>>(10); 
+        private static ThreadPoolDataDispatcher<TestData> dataWorker = null;
         public static void UTDataWorker()
         {
+            switchQueue = new SwitchContainer<TestData>(firstQueue, secondQueue); 
+            dataWorker = new ThreadPoolDataDispatcher<TestData>(10,switchQueue);             
+
             dataWorker.OnDataIn += new Action<TestData>(dataWorker_OnDataIn);
 
             Thread tInsertData = new Thread(InsertDataForWorker);

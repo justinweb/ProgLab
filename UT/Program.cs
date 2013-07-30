@@ -9,6 +9,10 @@ namespace UT
     {
         static void Main(string[] args)
         {
+            //SwitchUT.UT();
+            //SwitchUT.UTDataWorker();
+
+            LatestUT.UT(); 
         }
     }
 }
