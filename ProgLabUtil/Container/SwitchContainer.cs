@@ -326,9 +326,9 @@ namespace ProgLab.Util.Container
                 }
                 System.Diagnostics.Trace.WriteLine("[SwitchContainer] queue switched ");
             }
-            catch
+            catch(Exception exp )
             {
-                throw;
+                throw( new TimeoutException("SwitchContainer::SwitchQueue() timeout", exp)  );
             }
         }
 
@@ -364,9 +364,9 @@ namespace ProgLab.Util.Container
                     rwLock.ExitWriteLock();
                 }
             }
-            catch
+            catch(Exception exp)
             {
-                throw;
+                throw (new TimeoutException("SwitchContainer::Clear() timeout", exp));
             }
         }
         #endregion
