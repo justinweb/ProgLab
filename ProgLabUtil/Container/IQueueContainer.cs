@@ -43,9 +43,6 @@ namespace ProgLab.Util.Container
 
     }
     #endregion
-
-    
-
     
     public interface IObservable
     {

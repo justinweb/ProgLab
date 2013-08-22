@@ -50,10 +50,18 @@
     <Compile Include="Dispatcher\ThreadDataDispatcher.cs" />
     <Compile Include="Dispatcher\ThreadPoolDataDispatcher.cs" />
     <Compile Include="EncryptUtil.cs" />
+    <Compile Include="Extensions\DictionaryExtensions.cs" />
+    <Compile Include="Log\ConsoleLogTarget.cs" />
+    <Compile Include="Log\FileLogTarget.cs" />
+    <Compile Include="Log\ILogTarget.cs" />
+    <Compile Include="Log\LogSystem.cs" />
+    <Compile Include="Log\LogTargetBase.cs" />
+    <Compile Include="Log\LogTypeDefinition.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuickUpdateList.cs" />
     <Compile Include="RWDictionary.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
