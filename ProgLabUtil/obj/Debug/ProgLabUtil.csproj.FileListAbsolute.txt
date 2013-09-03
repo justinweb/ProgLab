@@ -14,3 +14,4 @@ D:\Project\GitHub\ProgLab\ProgLabUtil\bin\Debug\ProgLab.Util.pdb
 D:\Project\GitHub\ProgLab\ProgLabUtil\obj\Debug\ResolveAssemblyReference.cache
 D:\Project\GitHub\ProgLab\ProgLabUtil\obj\Debug\ProgLab.Util.dll
 D:\Project\GitHub\ProgLab\ProgLabUtil\obj\Debug\ProgLab.Util.pdb
+D:\TMP\GitHub\ProgLab\ProgLabUtil\bin\Debug\ProgLab.Util.XML

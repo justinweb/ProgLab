@@ -12,7 +12,8 @@ namespace UT
             //SwitchUT.UT();
             //SwitchUT.UTDataWorker();
 
-            LatestUT.UT(); 
+            //LatestUT.UT(); 
+            LogSystemUT.UT();
         }
     }
 }
