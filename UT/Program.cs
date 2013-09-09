@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using ProgLab.Util.Container;
 
 namespace UT
 {
@@ -13,7 +14,10 @@ namespace UT
             //SwitchUT.UTDataWorker();
 
             //LatestUT.UT(); 
-            LogSystemUT.UT();
+            //LogSystemUT.UT();
+
+            StorageUT.UT4();
+
         }
     }
 }

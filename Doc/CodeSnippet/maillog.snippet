@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Title>maillog</Title>
+      <Author>user</Author>
+      <Description>
+      </Description>
+      <HelpUrl>
+      </HelpUrl>
+      <Shortcut>
+      </Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal Editable="true">
+          <ID>instanceExpected</ID>
+          <ToolTip>instanceExpected</ToolTip>
+          <Default>instanceExpected</Default>
+          <Function>
+          </Function>
+        </Literal>
+      </Declarations>
+      <Code Language="csharp"><![CDATA[#region Set Mail Log
+                SmtpMailLogDefinition $instanceExpected$ = new SmtpMailLogDefinition();
+                $instanceExpected$.ServerIP = "kgi.com.tw";
+                $instanceExpected$.ServerPort = 25;
+                $instanceExpected$.UserName = "";
+                $instanceExpected$.Password = "";
+                $instanceExpected$.FromAddress = "ST.LogSystem@kgi.com.tw";
+                $instanceExpected$.ToAddress = "hsuehwen.lin@kgi.com.tw";              
+                $instanceExpected$.CCList = new List<string>();
+
+                $instanceExpected$.Subject = "Estimated Index Source";
+
+                string errorMsg = "";
+                KGI.TW.Der.Utility.Logs.Mail.SmtpMailLogger logMail = new SmtpMailLogger();
+                if (logMail.SetArguments($instanceExpected$, out errorMsg) == false)
+                {
+                    Console.WriteLine(errorMsg);
+                }
+                else
+                    LogSystem.Instance.AttachLogTarget(logMail, Utility.LogLevelEnum.Error);
+                #endregion]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

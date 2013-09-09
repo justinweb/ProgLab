@@ -46,12 +46,14 @@
     <Compile Include="Container\IQueueContainer.cs" />
     <Compile Include="Container\LatestContainer.cs" />
     <Compile Include="Container\QueueContainer.cs" />
+    <Compile Include="Container\StorageLib.cs" />
     <Compile Include="Container\SwitchContainer.cs" />
     <Compile Include="Dispatcher\IDispatcher.cs" />
     <Compile Include="Dispatcher\ThreadDataDispatcher.cs" />
     <Compile Include="Dispatcher\ThreadPoolDataDispatcher.cs" />
     <Compile Include="EncryptUtil.cs" />
     <Compile Include="Extensions\DictionaryExtensions.cs" />
+    <Compile Include="Extensions\StringExtenstions.cs" />
     <Compile Include="Log\ConsoleLogTarget.cs" />
     <Compile Include="Log\FileLogTarget.cs" />
     <Compile Include="Log\ILogTarget.cs" />

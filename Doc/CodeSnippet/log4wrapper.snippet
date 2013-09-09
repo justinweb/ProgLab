@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Title>log4wrapper</Title>
+      <Author>user</Author>
+      <Description>
+      </Description>
+      <HelpUrl>
+      </HelpUrl>
+      <Shortcut>
+      </Shortcut>
+    </Header>
+    <Snippet>
+      <Code Language="csharp"><![CDATA[#region Log4NetWrapper
+    /// <summary>
+    /// 將Log4net包裝成ILogWrapper的介面來使用
+    /// </summary>
+    public class Log4NetWrapper : ILogOut
+    {
+        private ILog log = null;
+
+        public Log4NetWrapper(ILog log)
+        {
+            this.log = log;
+        }
+
+        #region ILogWrapper 成員
+
+        public void Info(string msg)
+        {
+            log.Info(msg);
+        }
+
+        public void Debug(string msg)
+        {
+            log.Debug(msg);
+        }
+
+        public void Warn(string msg)
+        {
+            log.Warn(msg);
+        }
+
+        public void Error(string msg)
+        {
+            log.Error(msg);
+        }
+
+        #endregion
+    }
+    #endregion]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

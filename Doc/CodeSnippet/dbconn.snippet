@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Title>dbconn</Title>
+      <Author>user</Author>
+      <Description>
+      </Description>
+      <HelpUrl>
+      </HelpUrl>
+      <Shortcut>
+      </Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal Editable="true">
+          <ID>DBSource</ID>
+          <ToolTip>DBSource</ToolTip>
+          <Default>DBSource</Default>
+          <Function>
+          </Function>
+        </Literal>
+      </Declarations>
+      <Code Language="csharp"><![CDATA[EntityConnection dbConn = null;
+                switch ($DBSource$)
+                {
+                    case "Test":
+                        dbConn = STDAO.MSSql.Connection.ST.Test.First.ReadOnlyConnection;
+                        break;
+                    case "UAT":
+                        dbConn = STDAO.MSSql.Connection.ST.UAT.First.ReadOnlyConnection;
+                        break;
+                    case "VM":
+                        dbConn = STDAO.MSSql.Connection.ST.VM.First.ReadOnlyConnection;
+                        break;
+                    default:
+                        dbConn = STDAO.MSSql.Connection.ST.Test.First.ReadOnlyConnection;
+                        break;
+                }]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
