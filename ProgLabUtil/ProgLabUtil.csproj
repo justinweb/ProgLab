@@ -53,6 +53,7 @@
     <Compile Include="Dispatcher\ThreadPoolDataDispatcher.cs" />
     <Compile Include="EncryptUtil.cs" />
     <Compile Include="Extensions\DictionaryExtensions.cs" />
+    <Compile Include="Extensions\EnumExtensions.cs" />
     <Compile Include="Extensions\StringExtenstions.cs" />
     <Compile Include="Log\ConsoleLogTarget.cs" />
     <Compile Include="Log\FileLogTarget.cs" />

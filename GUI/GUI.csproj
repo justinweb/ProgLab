@@ -46,10 +46,16 @@
     <Compile Include="Authorization\AuthControlExtender.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Extensions\ComboBoxExtenstions.cs" />
     <Compile Include="Extensions\ControlSyncExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\ProgLabUtil\ProgLabUtil.csproj">
+      <Project>{EBDE2CE7-DC21-49ED-9B1A-0BD759D7AC55}</Project>
+      <Name>ProgLabUtil</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
