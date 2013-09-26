@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
+using ProgLab.Util.Log;
 
 namespace ProgLab.Util.Extensions
 {
@@ -74,6 +76,81 @@ namespace ProgLab.Util.Extensions
                     if (orgList.Count <= 0)
                         container.Remove(key);
                 }
+            }
+        }
+
+        /// <summary>
+        /// 新增指定的key及value
+        /// </summary>
+        /// <typeparam name="TKey"></typeparam>
+        /// <typeparam name="TValue"></typeparam>
+        /// <param name="container">以List{TValue}存放資料的Dictionary</param>
+        /// <param name="key">要新增的key</param>
+        /// <param name="value">要新增的value</param>
+        /// <param name="rwLock">要使用的Read/Write Locker</param>
+        public static void Add<TKey, TValue>(this Dictionary<TKey, List<TValue>> container, TKey key, TValue value, ReaderWriterLock rwLock)
+        {
+            try
+            {
+                rwLock.AcquireWriterLock(Timeout.Infinite);
+                try
+                {
+                    List<TValue> orgList = null;
+                    if (container.TryGetValue(key, out orgList))
+                    {
+                        orgList.Add(value);
+                    }
+                    else
+                    {
+                        orgList = new List<TValue>();
+                        orgList.Add(value);
+                        container.Add(key, orgList);
+                    }
+                }
+                finally
+                {
+                    rwLock.ReleaseWriterLock();
+                }
+            }
+            catch (Exception exp)
+            {
+                LogSystem.Instance.Error(exp.ToString());
+            }
+        }
+
+        /// <summary>
+        /// 移除指定的Key中的某個value
+        /// </summary>
+        /// <typeparam name="TKey"></typeparam>
+        /// <typeparam name="TValue"></typeparam>
+        /// <param name="container">以List{TValue}存放資料的Dictionary</param>
+        /// <param name="key">要移除的key</param>
+        /// <param name="value">要移除的value</param>
+        /// <param name="rwLock">要使用的Read/Write Locker</param>
+        public static void Remove<TKey, TValue>(this Dictionary<TKey, List<TValue>> container, TKey key, TValue value, ReaderWriterLock rwLock)
+        {
+
+            try
+            {
+                rwLock.AcquireWriterLock(Timeout.Infinite);
+                try
+                {
+                    List<TValue> orgList = null;
+                    if (container.TryGetValue(key, out orgList))
+                    {
+                        orgList.Remove(value);
+                        if (orgList.Count <= 0)
+                            container.Remove(key);
+                    }
+                }
+                finally
+                {
+                    rwLock.ReleaseWriterLock();
+                }
+            }
+            catch (Exception exp)
+            {
+                LogSystem.Instance.Error(exp.ToString());
             }
         }
         #endregion

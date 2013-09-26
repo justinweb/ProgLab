@@ -46,6 +46,7 @@
     <Compile Include="Container\IQueueContainer.cs" />
     <Compile Include="Container\LatestContainer.cs" />
     <Compile Include="Container\QueueContainer.cs" />
+    <Compile Include="Container\RWLockDictionary.cs" />
     <Compile Include="Container\StorageLib.cs" />
     <Compile Include="Container\SwitchContainer.cs" />
     <Compile Include="Dispatcher\IDispatcher.cs" />
@@ -62,6 +63,8 @@
     <Compile Include="Log\LogTargetBase.cs" />
     <Compile Include="Log\LogTypeDefinition.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Publish\IInformationClient.cs" />
+    <Compile Include="Publish\InformationCenter.cs" />
     <Compile Include="QuickUpdateList.cs" />
     <Compile Include="RWDictionary.cs" />
   </ItemGroup>
